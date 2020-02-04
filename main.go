@@ -10,16 +10,15 @@ func init() {
 	if err := models.InitialSqliteDatabase(); err != nil {
 		log.Panic("initial sqlite error: ", err)
 	}
+	fmt.Println("sqlite connection success!")
 }
 
 func main() {
-	fmt.Println("sqlite connection success!")
-
 	// userModel := models.User{}
 
 	/* Create */
-	// userModel.FirstName = "Warakorn"
-	// userModel.LastName = "Meakpattanapinyo"
+	// userModel.FirstName = "Tananut"
+	// userModel.LastName = "Panyagosa"
 	// userModel.Create()
 
 	/* Get All */

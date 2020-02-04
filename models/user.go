@@ -1,15 +1,11 @@
 package models
 
-import "time"
-
 type User struct {
-	FirstName   string     `json:"first_name"`
-	LastName    string     `json:"last_name"`
-	Email       string     `json:"email"`
-	PhoneNumber *string    `json:"phone_number"`
-	CreatedAt   time.Time  `gorm:"DEFAULT:now()" json:"created_at"`
-	UpdatedAt   *time.Time `gorm:"DEFAULT:now()" json:"updated_at"`
-	DeletedAt   *time.Time `gorm:"DEFAULT:NULL" json:"deleted_at"`
+	ID          uint32  `gorm:"primary_key;AUTO_INCREMENT" json:"user_id"`
+	FirstName   string  `json:"first_name"`
+	LastName    string  `json:"last_name"`
+	Email       string  `json:"email"`
+	PhoneNumber *string `json:"phone_number"`
 }
 
 func (user *User) Create() error {
