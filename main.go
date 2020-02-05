@@ -3,7 +3,10 @@ package main
 import (
 	"fmt"
 	"log"
+	"sqlite-lab/controllers"
 	"sqlite-lab/models"
+
+	"github.com/gin-gonic/gin"
 )
 
 func init() {
@@ -14,19 +17,15 @@ func init() {
 }
 
 func main() {
-	// userModel := models.User{}
+	r := gin.Default()
 
-	/* Create */
-	// userModel.FirstName = "Tananut"
-	// userModel.LastName = "Panyagosa"
-	// userModel.Create()
+	r.POST("/create", controllers.CreateUser)
+	r.POST("/update", controllers.UpdateUser)
 
-	/* Get All */
-	// usersResponse, getAllError := userModel.GetAll()
-	// if getAllError != nil {
-	// 	log.Panic("get all user error: ", getAllError)
-	// }
-	// fmt.Println("usersResponse: ", usersResponse)
+	r.GET("/get", controllers.GetUserByID)
+	r.GET("/list", controllers.GetAllUser)
+	r.GET("/delete", controllers.DeleteUser)
+	r.GET("/undelete", controllers.UnDeleteUser)
 
-	fmt.Println("done!")
+	r.Run(":80")
 }
